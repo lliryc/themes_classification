@@ -5,13 +5,18 @@ import os
 import dotenv
 import uvicorn
 from pydantic import BaseModel, Field
+import torch
+
 dotenv.load_dotenv()
+
+# torch device
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Initialize FastAPI app
 app = FastAPI()
 
 # Initialize the classifier as a global variable
-classifier = pipeline("zero-shot-classification", model="facebook/bart-large-mnli")
+classifier = pipeline("zero-shot-classification", model="facebook/bart-large-mnli", device=device)
 # Create a POST endpoint for classifying text
 # Create ClassificationRequest model
 class ClassificationRequest(BaseModel):
