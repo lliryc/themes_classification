@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "themes-classification"
+version = "0.1.0"
+description = "Themes classification service"
+authors = ["Kirill Chirkunov <kirill.chirkunov@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+fastapi = "^0.115.4"
+uvicorn = "^0.32.0"
+transformers = "^4.46.1"
+torch = "2.4.1"
+python-dotenv = "^1.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
